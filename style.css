@@ -2,32 +2,129 @@
   font-family: "Geist", sans-serif;
   color: #000;
   background: #fff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 4rem 2rem 3rem;
+}
+
+main > p:first-child {
+  margin: 0 0 0.75rem;
+  color: #666;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 600;
+  letter-spacing: -0.065em;
+  line-height: 1;
+}
+
+#status {
+  min-height: 1.5rem;
+  margin: 1rem 0 1.5rem;
+  color: #555;
+}
+
+#status:empty {
+  min-height: 0;
+  margin: 0 0 1.5rem;
 }
 
 .pair {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
+}
+
+.card {
+  min-width: 0;
+  padding: 0.75rem;
+  border: 1px solid #dedede;
+  background: #fff;
 }
 
 .card img {
   display: block;
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #f2f2f2;
 }
 
 .card img[hidden] {
   display: none;
 }
 
+h2 {
+  min-height: 1.5em;
+  margin: 1rem 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+button {
+  width: 100%;
+  min-height: 3rem;
+  border: 1px solid #000;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+button:hover:not(:disabled) {
+  background: #fff;
+  color: #000;
+}
+
+button:focus-visible {
+  outline: 3px solid #777;
+  outline-offset: 3px;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+
+main > p:last-child {
+  margin-top: 2rem;
+  color: #666;
+  font-size: 0.8rem;
+}
+
+a {
+  color: inherit;
+}
+
 @media (max-width: 640px) {
+  body {
+    padding: 2.5rem 1rem;
+  }
+
   .pair {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 12vw, 4rem);
   }
 }
