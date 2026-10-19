@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Onitsuka Tiger</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main>
+    <header>
+      <p>Japanese footwear and fashion</p>
+      <h1>Onitsuka Tiger</h1>
+      <p>
+        Founded in Japan in 1949 by Kihachiro Onitsuka, Onitsuka Tiger is known
+        for heritage-inspired sneakers and its distinctive stripe designs.
+      </p>
+    </header>
+
+    <section aria-labelledby="styles-heading">
+      <h2 id="styles-heading">Signature styles</h2>
+      <p>Explore a few well-known Onitsuka Tiger silhouettes:</p>
+      <ul>
+        {% for model in models %}
+        <li>
+          <h3>{{ model["name"] }}</h3>
+          <p>{{ model["description"] }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
