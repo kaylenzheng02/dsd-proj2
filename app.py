@@ -4,7 +4,7 @@ import os
 import random
 
 import requests
-from flask import Flask, jsonify, request, send_from_directory
+from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
 
@@ -56,12 +56,7 @@ def get_two_bird_images():
 
 @app.route("/")
 def home():
-    return send_from_directory(app.root_path, "index.html")
-
-
-@app.route("/style.css")
-def stylesheet():
-    return send_from_directory(app.root_path, "style.css", mimetype="text/css")
+    return render_template("index.html")
 
 
 @app.route("/api/images")
