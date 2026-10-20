@@ -1,3 +1,157 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: "Google Sans", Arial, sans-serif;
+  margin: 0;
+  background: #f7f5ef;
+  color: #202d49;
+  font-family: Arial, sans-serif;
+}
+
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+header {
+  margin-bottom: 36px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #dcd9cf;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 14px 0;
+  font-size: clamp(36px, 6vw, 60px);
+  letter-spacing: -0.05em;
+}
+
+.intro {
+  color: #626570;
+  font-size: 18px;
+}
+
+.count {
+  margin-top: 28px;
+  font-size: 14px;
+}
+
+h2 {
+  margin-bottom: 24px;
+  font-size: 22px;
+}
+
+.collection {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.shoe-card {
+  overflow: hidden;
+  border: 1px solid #dedbd2;
+  border-radius: 0;
+  background: #fffefa;
+}
+
+.photo-panel {
+  height: 240px;
+  padding: 18px;
+  background: white;
+}
+
+.photo-panel img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.color-panel {
+  position: relative;
+  display: flex;
+  height: 210px;
+}
+
+.color-block {
+  display: block;
+  height: 100%;
+}
+
+.birch {
+  width: 70%;
+  background: #e8dfcd;
+}
+
+.navy {
+  width: 30%;
+  background: #202d49;
+}
+
+.color-label {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  padding: 7px 10px;
+  border-radius: 5px;
+  background: #fffefa;
+  font-size: 12px;
+}
+
+.details {
+  padding: 24px;
+}
+
+.details .eyebrow {
+  margin-top: 0;
+  color: #686b73;
+}
+
+h3 {
+  margin: 12px 0;
+  font-size: 25px;
+}
+
+.details > p:not(.eyebrow) {
+  color: #626570;
+}
+
+.material {
+  font-size: 14px;
+}
+
+.badge {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 7px 11px;
+  border-radius: 20px;
+  background: #eeefe8;
+  font-size: 12px;
+}
+
+@media (min-width: 481px) and (max-width: 900px) {
+  .collection {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 36px 20px;
+  }
+
+  .collection {
+    grid-template-columns: 1fr;
+  }
 }
