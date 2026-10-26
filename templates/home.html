@@ -3,24 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Shoe Inventory | Kaylen Zheng</title>
+  <title>shoe inventory</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body class="home-page">
   <main class="home-main">
-    <nav class="site-nav home-nav" aria-label="Main navigation">
-      <a class="nav-brand" href="{{ url_for('home') }}">Kaylen Zheng</a>
-      <div class="nav-links">
-        <a href="{{ url_for('index') }}">My Collection</a>
-        <a href="{{ url_for('wishlist') }}">Shoes I Want</a>
-      </div>
-    </nav>
     <section class="home-hero" aria-labelledby="home-heading">
       <div class="home-copy">
-        <p class="eyebrow">Kaylen Zheng</p>
-        <h1 id="home-heading">A few of my favorite shoes.</h1>
-        <p class="intro">A little look at the shoes I wear and love.</p>
-        <a class="enter-button" href="{{ url_for('index') }}">Enter</a>
+        <h1 id="home-heading">walk in closet</h1>
+        <div class="home-actions">
+          <a class="enter-button enter-button-primary" href="{{ url_for('index') }}">my collection</a>
+          <a class="enter-button enter-button-secondary" href="{{ url_for('wishlist') }}">my wishlist</a>
+        </div>
       </div>
       <div class="home-image">
         <img src="{{ url_for('static', filename='images/mexico-66-pure-silver-black.jpg') }}" alt="Onitsuka Tiger Mexico 66 in silver and black">
