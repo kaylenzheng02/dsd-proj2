@@ -8,6 +8,13 @@
 </head>
 <body class="home-page">
   <main class="home-main">
+    <nav class="site-nav home-nav" aria-label="Main navigation">
+      <a class="nav-brand" href="{{ url_for('home') }}">Kaylen Zheng</a>
+      <div class="nav-links">
+        <a href="{{ url_for('index') }}">My Collection</a>
+        <a href="{{ url_for('wishlist') }}">Shoes I Want</a>
+      </div>
+    </nav>
     <section class="home-hero" aria-labelledby="home-heading">
       <div class="home-copy">
         <p class="eyebrow">Kaylen Zheng</p>

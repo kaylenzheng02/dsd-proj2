@@ -38,6 +38,27 @@ shoes = [
     },
 ]
 
+wishlist_shoes = [
+    {
+        "brand": "Onitsuka Tiger",
+        "style": "Mexico 66",
+        "colorway": "Silver / Black",
+        "image": "images/mexico-66-silver-black.jpg",
+    },
+    {
+        "brand": "Onitsuka Tiger",
+        "style": "Mexico 66",
+        "colorway": "Silver / White",
+        "image": "images/mexico-66-silver-clean.webp",
+    },
+    {
+        "brand": "Onitsuka Tiger",
+        "style": "Mexico 66",
+        "colorway": "Silver / Off White",
+        "image": "images/mexico-66-silver.jpg",
+    },
+]
+
 
 @app.route("/")
 def home():
@@ -49,4 +70,8 @@ def home():
 def index():
     return render_template("index.html", shoes=shoes)
 
+
+@app.route("/wishlist")
+def wishlist():
+    return render_template("wishlist.html", shoes=wishlist_shoes)
 

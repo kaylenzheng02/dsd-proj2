@@ -8,6 +8,13 @@
 </head>
 <body>
   <main>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="nav-brand" href="{{ url_for('home') }}">Kaylen Zheng</a>
+      <div class="nav-links">
+        <a href="{{ url_for('index') }}" aria-current="page">My Collection</a>
+        <a href="{{ url_for('wishlist') }}">Shoes I Want</a>
+      </div>
+    </nav>
     <header>
       <p class="eyebrow">Kaylen Zheng</p>
       <h1>shoe inventory</h1>
@@ -19,22 +26,51 @@
       <h2 id="collection-heading">My collection</h2>
       <ul class="collection">
         {% for shoe in shoes %}
-        <li class="shoe-card">
-          <div class="photo-panel">
-            <img src="{{ url_for('static', filename=shoe['image']) }}" alt="{{ shoe['brand'] }} {{ shoe['style'] }} in {{ shoe['colorway'] }}">
-          </div>
-          <div class="details">
-            <p class="eyebrow">{{ shoe["brand"] }}</p>
-            <h3>{{ shoe["style"] }}</h3>
-            <p>{{ shoe["colorway"] }}</p>
-            {% if shoe.get("material") %}
-            <p class="material">{{ shoe["material"] }}</p>
-            {% endif %}
-          </div>
+        <li>
+          <button class="shoe-card" type="button"
+                  data-shoe-id="{{ loop.index0 }}"
+                  data-brand="{{ shoe['brand'] }}"
+                  data-style="{{ shoe['style'] }}"
+                  data-colorway="{{ shoe['colorway'] }}"
+                  data-image="{{ url_for('static', filename=shoe['image']) }}"
+                  data-material="{{ shoe.get('material', '') }}">
+            <span class="photo-panel">
+              <img src="{{ url_for('static', filename=shoe['image']) }}" alt="">
+            </span>
+            <span class="details">
+              <span class="eyebrow">{{ shoe["brand"] }}</span>
+              <span class="shoe-title">{{ shoe["style"] }}</span>
+              <span>{{ shoe["colorway"] }}</span>
+              {% if shoe.get("material") %}
+              <span class="material">{{ shoe["material"] }}</span>
+              {% endif %}
+              <span class="rating-summary" aria-live="polite"></span>
+            </span>
+          </button>
         </li>
         {% endfor %}
       </ul>
     </section>
   </main>
+  <dialog class="rating-dialog" id="shoe-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-content">
+      <button class="dialog-close" type="button" aria-label="Close rating dialog">&times;</button>
+      <img class="dialog-image" id="dialog-image" alt="">
+      <p class="eyebrow" id="dialog-brand"></p>
+      <h2 id="dialog-title"></h2>
+      <p class="dialog-colorway" id="dialog-colorway"></p>
+      <p class="material" id="dialog-material"></p>
+      <fieldset class="rating-picker">
+        <legend>Your rating</legend>
+        <div class="rating-stars" id="rating-stars">
+          {% for rating in range(1, 6) %}
+          <button class="rating-star" type="button" data-rating="{{ rating }}" aria-label="{{ rating }} out of 5 stars" aria-pressed="false">&#9733;</button>
+          {% endfor %}
+        </div>
+      </fieldset>
+      <p class="rating-status" id="rating-status" aria-live="polite"></p>
+    </div>
+  </dialog>
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </body>
 </html>
