@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shoe Inventory | Kaylen Zheng</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="home-page">
+  <main class="home-main">
+    <section class="home-hero" aria-labelledby="home-heading">
+      <div class="home-copy">
+        <p class="eyebrow">Kaylen Zheng</p>
+        <h1 id="home-heading">A few of my favorite shoes.</h1>
+        <p class="intro">A little look at the shoes I wear and love.</p>
+        <a class="enter-button" href="{{ url_for('index') }}">Enter</a>
+      </div>
+      <div class="home-image">
+        <img src="{{ url_for('static', filename='images/mexico-66-pure-silver-black.jpg') }}" alt="Onitsuka Tiger Mexico 66 in silver and black">
+      </div>
+    </section>
+  </main>
+</body>
+</html>

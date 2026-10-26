@@ -40,10 +40,13 @@ shoes = [
 
 
 @app.route("/")
+def home():
+    return render_template("home.html")
+
+
 @app.route("/index")
+@app.route("/inventory")
 def index():
     return render_template("index.html", shoes=shoes)
-
-
 
 
