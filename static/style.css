@@ -85,39 +85,48 @@ header {
   margin-bottom: 32px;
 }
 
+.home-copy {
+  text-align: center;
+}
+
+.home-copy h1 {
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .home-actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 12px;
 }
 
 .enter-button {
   display: inline-block;
   padding: 14px 28px;
-  background: #202d49;
-  color: #fffefa;
+  background: #d3debd;
+  color: #202d49;
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;
 }
 
 .enter-button-secondary {
-  border: 1px solid #202d49;
-  background: transparent;
+  border: 1px solid #d3debd;
+  background: #d3debd;
   color: #202d49;
 }
 
 .enter-button-primary:hover,
 .enter-button-primary:focus-visible {
-  border: 1px solid #202d49;
-  background: #f7f5ef;
-  color: #202d49;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .enter-button-secondary:hover,
 .enter-button-secondary:focus-visible {
-  background: #35486e;
-  color: #fffefa;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .home-image {
