@@ -3,27 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Onitsuka Tiger</title>
+  <title>Shoe Inventory</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <main>
     <header>
-      <p>kaylen zheng</p>
+      <p class="eyebrow">Kaylen Zheng</p>
       <h1>shoe inventory</h1>
-      <p>
-        here is a list of the shoes that i currently wear
-      </p>
+      <p class="intro">Here is a list of the shoes that I currently wear.</p>
+      <p class="count">{{ shoes|length }} pairs in my collection</p>
     </header>
 
-    <section aria-labelledby="styles-heading">
-      <h2 id="styles-heading">Signature styles</h2>
-      <p>Explore a few well-known Onitsuka Tiger silhouettes:</p>
-      <ul>
-        {% for model in models %}
-        <li>
-          <h3>{{ model["name"] }}</h3>
-          <p>{{ model["description"] }}</p>
+    <section aria-labelledby="collection-heading">
+      <h2 id="collection-heading">My collection</h2>
+      <ul class="collection">
+        {% for shoe in shoes %}
+        <li class="shoe-card">
+          <div class="photo-panel">
+            <img src="{{ url_for('static', filename=shoe['image']) }}" alt="{{ shoe['brand'] }} {{ shoe['style'] }} in {{ shoe['colorway'] }}">
+          </div>
+          <div class="details">
+            <p class="eyebrow">{{ shoe["brand"] }}</p>
+            <h3>{{ shoe["style"] }}</h3>
+            <p>{{ shoe["colorway"] }}</p>
+            {% if shoe.get("material") %}
+            <p class="material">{{ shoe["material"] }}</p>
+            {% endif %}
+          </div>
         </li>
         {% endfor %}
       </ul>
